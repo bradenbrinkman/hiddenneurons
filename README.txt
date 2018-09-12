@@ -28,7 +28,7 @@ The scripts Janalysis_ERplots_dJ_sigmoidnonlin.m and hiddenlinearrates_validatio
 =======================PYTHON SIMULATION CODE============================
 ===========================================================================
 
-Python code for performing network simulations was originally written by Gabe Ocker to accompany the paper “Linking structure and activity in nonlinear spiking networks,” PLOS Computational Biology https://doi.org/10.1371/journal.pcbi.1005583. It has been modified by the lead author of this work (Braden Brinkman). The modified code is included in this repository.
+Python code for performing network simulations was originally written by Gabe Ocker to accompany the paper “Linking structure and activity in nonlinear spiking networks,” PLOS Computational Biology https://doi.org/10.1371/journal.pcbi.1005583. Code to generate networks with Watts-Strogatz connectivity was originally written by Francis Song for the paper Phys. Rev. E 90 062801 (2014). All codes have been modified by the lead author of this work (Braden Brinkman). The modified codes are included in this repository.
 
 There are six folders, each with a similar set of functions. The primary difference between the folders is the statistical structure of the networks used in each simulation. The six folders are named after the corresponding structure of the adjacency matrices used in the simulation:
 
