@@ -30,9 +30,9 @@ The scripts Janalysis_ERplots_dJ_sigmoidnonlin.m and hiddenlinearrates_validatio
 
 Python code for performing network simulations was originally written by Gabe Ocker to accompany the paper “Linking structure and activity in nonlinear spiking networks,” PLOS Computational Biology https://doi.org/10.1371/journal.pcbi.1005583. It has been modified by the lead author of this work (Braden Brinkman). The modified code is included in this repository.
 
-There are four folders, each with a similar set of functions. The primary difference between the folders is the statistical structure of the networks used in each simulation. The four folders are named after the corresponding structure of the adjacency matrices used in the simulation:
+There are six folders, each with a similar set of functions. The primary difference between the folders is the statistical structure of the networks used in each simulation. The six folders are named after the corresponding structure of the adjacency matrices used in the simulation:
 
-normalDLbalancedER: Erdos-Reyni connectivity. Weights are drawn from a Gaussian distribution, but signs adjusted such that all of a neuron’s weights are the same sign (Dale’s Law). Weights are scaled by 1/sqrt(N), where N is the number of neurons, known as balanced scaling.
+normalDLbalancedER: Erdos-Reyni connectivity. Weights are drawn from a Gaussian distribution, but signs adjusted such that all of a neuron’s weights are the same sign (Dale’s Law). Weights are scaled by 1/sqrt(N), known as balanced scaling.
 
 normalDLclassicalER: Erdos-Reyni connectivity. Weights are drawn from a Gaussian distribution, but signs adjusted such that all of a neuron’s weights are the same sign (Dale’s Law). Weights are scaled by 1/N, where N is the number of neurons, known as classical scaling.
 
@@ -40,27 +40,31 @@ normalsignedbalancedER: Erdos-Reyni connectivity. Weights are drawn from a Gauss
 
 normalsignedclassicalER: Erdos-Reyni connectivity. Weights are drawn from a Gaussian distribution. Weights are scaled by 1/N, where N is the number of neurons, known as classical scaling.
 
+normalsignedbalancedWS: Watts-Strogatz connectivity. Weights are drawn from a Gaussian distribution. Weights are scaled by 1/sqrt(N), where N is the number of neurons, known as balanced scaling.
+
+normalsignedclassicalWS: Watts-Strogatz connectivity. Weights are drawn from a Gaussian distribution. Weights are scaled by 1/N, where N is the number of neurons, known as classical scaling.
+
 The common functions in each folder are:
 
-correlation_functions_hiddenlinearrates.py: defines a set of functions used to calculate the correlation functions of a network, both using the output of the network simulations and calculation techniques of Ocker et al. (2017).
+correlation_functions_hiddenlinearrates.py (or correlation_functions.py): defines a set of functions used to calculate the correlation functions of a network, both using the output of the network simulations and calculation techniques of Ocker et al. (2017).
 
 generate_adj_X.py: Generates the appropriate adjacency matrix corresponding to statistics X (e.g., X = DLER for Dale’s Law Erdos-Reyni networks).
 
-params_hiddenlinearrates_Gaussian.py: set the parameters for the network simulations.
+params_hiddenlinearrates_Gaussian.py (or params_GaussianWS.py): set the parameters for the network simulations.
 
 phi.py: Sets the nonlinearity phi(x).
 
 printweights_X.py: generates and prints to file an adjacency matrix with statistics X (e.g., X = DLER for Dale’s Law Erdos-Reyni networks).
 
-rates_linear_response_hiddenlinearrates_GaussianER.py: defines a set of functions used to calculate the firing rates of a network, both using the output of the network simulations and calculation techniques of Ocker et al. (2017).
+rates_linear_response_hiddenlinearrates_GaussianER.py (or rates_linear_response_GaussianWS.py): defines a set of functions used to calculate the firing rates of a network, both using the output of the network simulations and calculation techniques of Ocker et al. (2017).
 
 sim_poisson_X.py: Simulates the nonlinear Hawkes model with network statistics X. (e.g., X = normalDLbalancedER for a network with Dale’s Law, Erdos-Reyni connectivity, normal (Gaussian) weights, and balanced scaling).
 
-In addition to the above functions, the folder normalsignedbalancedER contains the additional following functions:
+In addition to the above functions, the folder normalsignedbalancedER contains the following functions:
 
 sim_poisson_hiddenlinearrates_normalsignedbalancedER.py: unlike the normal sim_poisson_X.py, explicitly partitions the network into recorded and hidden neurons, and estimates the firing rates of both the full network and a network containing only the hidden neurons.
 
-sim_Jeffw_normalsignedbalancedER.py: calculates the effective synaptic interaction in the frequency domain.
+sim_Jeffw_normalsignedbalancedER.py: calculates the effective synaptic interactions in the frequency domain.
 
-sim_Jefft_normalsignedbalancedER.py: calculates the effective synaptic interaction in the time domain.
+sim_Jefft_normalsignedbalancedER.py: calculates the effective synaptic interactions in the time domain.
 
